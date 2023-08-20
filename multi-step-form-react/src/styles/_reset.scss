@@ -20,7 +20,6 @@ body {
 
 img,
 picture,
-svg,
 video {
   display: block;
   max-width: 100%;
@@ -34,6 +33,7 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 button {

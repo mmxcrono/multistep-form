@@ -1,10 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {App} from './App.tsx'
-import './scss/index.scss'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+
+import { App } from './app/App.tsx';
+import store from './app/store.ts';
+import './styles/index.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App title="Multi-Step Form" />
-  </React.StrictMode>,
-)
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+    ,
+  </Provider>,
+);

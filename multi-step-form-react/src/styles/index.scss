@@ -1,41 +1,8 @@
 @import './reset';
 @import './fonts';
-@import './variables';
+@import './colors';
 @import './mixins';
-
-:root {
-  // Font family
-  --ff-base: 'Ubuntu', sans-serif;
-
-  // Font sizes
-  --fs-base: 16px;
-  --fs-200: 0.8rem;
-  --fs-300: 0.9rem;
-  --fs-400: 1rem;
-  --fs-500: 1.5rem;
-  --fs-600: 2rem;
-  --fs-700: 3rem;
-  --fs-800: 6rem;
-
-  // Font weights
-  --fw-normal: 400;
-  --fw-medium: 500;
-  --fw-bold: 700;
-
-  // Expressive colors
-  --clr-primary-400: #{$clr-marine-blue};
-  --clr-primary-600: #{$clr-pastel-blue};
-  --clr-primary-700: #{$clr-purplish-blue};
-  --clr-accent-800: #{$clr-light-blue};
-  --clr-warn-700: #{$clr-strawberry-red};
-
-  // Neutral colors
-  --clr-neutral-600: #{$clr-cool-gray};
-  --clr-neutral-700: #{$clr-light-gray};
-  --clr-neutral-800: #{$clr-magnolia};
-  --clr-neutral-850: #{$clr-alabaster};
-  --clr-neutral-900: #{$clr-white};
-}
+@import './theme';
 
 body {
   background-color: var(--clr-primary-600);
@@ -54,5 +21,5 @@ input,
 textarea,
 select,
 button {
-  color: var(--clr-neutral-600);
+  color: var(--clr-text);
 }
