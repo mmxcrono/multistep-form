@@ -2,7 +2,36 @@
 @import './fonts';
 @import './colors';
 @import './mixins';
-@import './theme';
+
+:root {
+  --ff-base: 'Ubuntu', sans-serif;
+
+  --fw-regular: 300;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --fs-base: 16px;
+  --fs-200: 0.875rem;
+  --fs-300: 1rem;
+  --fs-400: 1.125rem;
+  --fs-500: 1.375rem;
+  --fs-600: 1.75rem;
+  --fs-700: 3.25rem;
+
+  // Expressive colors
+  --clr-primary-400: #{$clr-marine-blue};
+  --clr-primary-600: #{$clr-pastel-blue};
+  --clr-primary-700: #{$clr-purplish-blue};
+  --clr-accent-800: #{$clr-light-blue};
+  --clr-warn-700: #{$clr-strawberry-red};
+
+  // Neutral colors
+  --clr-neutral-600: #{$clr-cool-gray};
+  --clr-neutral-700: #{$clr-light-gray};
+  --clr-neutral-800: #{$clr-magnolia};
+  --clr-neutral-850: #{$clr-alabaster};
+  --clr-neutral-900: #{$clr-white};
+}
 
 body {
   background-color: var(--clr-primary-600);
