@@ -11,7 +11,7 @@ const mockStore = configureStore([]);
 
 describe(`${SUITE}`, () => {
   it(`${SUITE} - Initial state`, async ({ expect }) => {
-    const initialState = { signUp: { name: '', step: 1 } };
+    const initialState = { signUp: { personalInfo: { name: '' }, step: 1 } };
     const store = mockStore(initialState);
 
     render(

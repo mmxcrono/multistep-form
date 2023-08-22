@@ -10,7 +10,7 @@ const mockStore = configureStore([]);
 
 describe(`${SUITE}`, () => {
   it(`${SUITE} - Initial state`, async ({ expect }) => {
-    const initialState = { signUp: { name: '', step: 1 } };
+    const initialState = { signUp: { personalInfo: { name: '' }, step: 1 } };
     const store = mockStore(initialState);
 
     render(
@@ -19,8 +19,7 @@ describe(`${SUITE}`, () => {
       </Provider>,
     );
 
-    // Expect step to be 1
-    // step-1 should have active state
+    expect(screen.getByTestId('steps-display')).toBeInTheDocument();
     expect(screen.getByTestId('step-1')).toHaveClass('active');
     expect(screen.getByTestId('step-2')).not.toHaveClass('active');
     expect(screen.getByTestId('step-3')).not.toHaveClass('active');

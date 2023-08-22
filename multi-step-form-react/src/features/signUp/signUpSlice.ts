@@ -1,17 +1,22 @@
 import { RootState } from '@/app/store';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-interface SignUpState {
+interface PersonalInfo {
   name: string;
   email: string;
   phone: string;
+}
+interface SignUpState {
+  personalInfo: PersonalInfo;
   step: number;
 }
 
 const initialState: SignUpState = {
-  name: '',
-  email: '',
-  phone: '',
+  personalInfo: {
+    name: '',
+    email: '',
+    phone: '',
+  },
   step: 1,
 };
 
@@ -20,19 +25,15 @@ const signUpSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
-      state.name = '';
-      state.email = '';
-      state.phone = '';
+      state.personalInfo = {
+        name: '',
+        email: '',
+        phone: '',
+      };
       state.step = 1;
     },
-    setName(state, action: PayloadAction<string>) {
-      state.name = action.payload;
-    },
-    setEmail(state, action: PayloadAction<string>) {
-      state.email = action.payload;
-    },
-    setPhone(state, action: PayloadAction<string>) {
-      state.phone = action.payload;
+    submitPersonalInfo(state, action: PayloadAction<PersonalInfo>) {
+      state.personalInfo = action.payload;
     },
     nextStep(state) {
       state.step++;
@@ -43,11 +44,10 @@ const signUpSlice = createSlice({
   },
 });
 
-export const { reset, setName, setEmail, setPhone, nextStep, previousStep } =
+export const { reset, submitPersonalInfo, nextStep, previousStep } =
   signUpSlice.actions;
-export const selectName = (state: RootState) => state.signUp.name;
-export const selectEmail = (state: RootState) => state.signUp.email;
-export const selectPhone = (state: RootState) => state.signUp.phone;
+export const selectPersonalInfo = (state: RootState) =>
+  state.signUp.personalInfo;
 export const selectStep = (state: RootState) => state.signUp.step;
 
 export default signUpSlice.reducer;

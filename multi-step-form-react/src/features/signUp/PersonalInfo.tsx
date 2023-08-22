@@ -1,37 +1,47 @@
 import { AppText } from '@/enums/appText';
 import {
   nextStep,
-  selectEmail,
-  selectName,
-  selectPhone,
-  selectStep,
-  setEmail,
-  setName,
-  setPhone,
+  selectPersonalInfo,
+  submitPersonalInfo,
 } from '@/features/signUp/signUpSlice';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { useState } from 'react';
 
 export const PersonalInfo: React.FC = () => {
   const dispatch = useAppDispatch();
 
-  const name = useAppSelector(selectName);
-  const email = useAppSelector(selectEmail);
-  const phone = useAppSelector(selectPhone);
+  const personalInfo = useAppSelector(selectPersonalInfo);
+
+  const [name, setName] = useState(personalInfo.name);
+  const [email, setEmail] = useState(personalInfo.email);
+  const [phone, setPhone] = useState(personalInfo.phone);
 
   const onNameChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch(setName(event.target.value));
+    setName(event.target.value);
   };
 
   const onEmailChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch(setEmail(event.target.value));
+    setEmail(event.target.value);
   };
 
   const onPhoneChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch(setPhone(event.target.value));
+    setPhone(event.target.value);
   };
 
   const onNextStep = () => {
-    dispatch(nextStep());
+    const isValid = false;
+    if (isValid) {
+      dispatch(
+        submitPersonalInfo({
+          name,
+          email,
+          phone,
+        }),
+      );
+      dispatch(nextStep());
+    } else {
+      console.log('display errors');
+    }
   };
 
   return (
