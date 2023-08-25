@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { NumberAvatar } from '@/common/NumberAvatar';
 import { useAppSelector } from '@/app/hooks';
-import { selectStep } from '@/features/signUp/signUpSlice';
+import { selectCurrentStep } from '@/features/signUp/signUpSlice';
 
 const Container = styled.div`
   display: flex;
@@ -17,17 +17,15 @@ interface Props {
 }
 
 export const StepsDisplay: React.FC<Props> = (props: Props) => {
-  const step = useAppSelector(selectStep);
+  const currentStep = useAppSelector(selectCurrentStep);
 
   return (
     <>
-      <Container className="steps-display" data-testid="steps-display">
+      <Container>
         {Array.from({ length: props.numSteps }, (_, index) => (
           <NumberAvatar
             key={index}
-            className={`steps-display__step ${
-              step === index + 1 ? 'active' : ''
-            }`}
+            $isActive={currentStep === index + 1}
             number={index + 1}
           />
         ))}

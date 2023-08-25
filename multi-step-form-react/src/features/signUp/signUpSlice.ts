@@ -8,7 +8,7 @@ interface PersonalInfo {
 }
 interface SignUpState {
   personalInfo: PersonalInfo;
-  step: number;
+  currentStep: number;
 }
 
 const initialState: SignUpState = {
@@ -17,7 +17,7 @@ const initialState: SignUpState = {
     email: '',
     phone: '',
   },
-  step: 1,
+  currentStep: 1,
 };
 
 const signUpSlice = createSlice({
@@ -30,16 +30,16 @@ const signUpSlice = createSlice({
         email: '',
         phone: '',
       };
-      state.step = 1;
+      state.currentStep = 1;
     },
     submitPersonalInfo(state, action: PayloadAction<PersonalInfo>) {
       state.personalInfo = action.payload;
     },
     nextStep(state) {
-      state.step++;
+      state.currentStep++;
     },
     previousStep(state) {
-      state.step--;
+      state.currentStep--;
     },
   },
 });
@@ -48,6 +48,6 @@ export const { reset, submitPersonalInfo, nextStep, previousStep } =
   signUpSlice.actions;
 export const selectPersonalInfo = (state: RootState) =>
   state.signUp.personalInfo;
-export const selectStep = (state: RootState) => state.signUp.step;
+export const selectCurrentStep = (state: RootState) => state.signUp.currentStep;
 
 export default signUpSlice.reducer;

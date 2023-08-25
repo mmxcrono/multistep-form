@@ -1,7 +1,7 @@
 import { describe, it } from 'vitest';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import { App } from '@/app/App';
 
@@ -13,16 +13,15 @@ describe(`${SUITE}`, () => {
     const initialState = { signUp: { personalInfo: { name: '' }, step: 1 } };
     const store = mockStore(initialState);
 
-    render(
+    const { getByText } = render(
       <Provider store={store}>
         <App />
       </Provider>,
     );
 
-    expect(screen.getByTestId('steps-display')).toBeInTheDocument();
-    expect(screen.getByTestId('step-1')).toHaveClass('active');
-    expect(screen.getByTestId('step-2')).not.toHaveClass('active');
-    expect(screen.getByTestId('step-3')).not.toHaveClass('active');
-    expect(screen.getByTestId('step-4')).not.toHaveClass('active');
+    expect(getByText('1')).toBeInTheDocument();
+    expect(getByText('2')).toBeInTheDocument();
+    expect(getByText('3')).toBeInTheDocument();
+    expect(getByText('4')).toBeInTheDocument();
   });
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { PersonalInfo } from '@/features/signUp/PersonalInfo';
-import { selectStep } from '@/features/signUp/signUpSlice';
+import { selectCurrentStep } from '@/features/signUp/signUpSlice';
 
 import './App.scss';
 import { useAppSelector } from './hooks';
@@ -13,7 +13,7 @@ const theme = {
 };
 
 export const App: React.FC = () => {
-  const step = useAppSelector(selectStep);
+  const step = useAppSelector(selectCurrentStep);
 
   return (
     <ThemeProvider theme={theme}>

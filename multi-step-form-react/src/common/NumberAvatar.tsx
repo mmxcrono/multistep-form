@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+interface ContainerProps {
+  $isActive: boolean;
+}
 
-const Container = styled.div`
+const Container = styled.div<ContainerProps>`
   display: flex;
   place-items: center;
   background-color: var(--clr-accent-800);
@@ -11,10 +14,12 @@ const Container = styled.div`
   aspect-ratio: 1;
   position: relative;
 
-  &.active {
+  ${(props) =>
+    props.$isActive &&
+    `
     color: var(--clr-primary-400);
     border-color: var(--clr-primary-400);
-  }
+  `}
 `;
 
 const Number = styled.div`
@@ -23,15 +28,14 @@ const Number = styled.div`
   text-align: center;
 `;
 
-interface Props {
+interface Props extends ContainerProps {
   number: number;
-  className?: string;
 }
 
-export const NumberAvatar: React.FC<Props> = (props: Props) => {
+export const NumberAvatar: React.FC<Props> = ({ number, $isActive }) => {
   return (
-    <Container className={props.className} data-testid={`step-${props.number}`}>
-      <Number>{props.number}</Number>
+    <Container data-active={$isActive} $isActive={$isActive}>
+      <Number>{number}</Number>
     </Container>
   );
 };
