@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { AppText } from '@/enums/appText';
 import {
   nextStep,
@@ -5,7 +7,7 @@ import {
   submitPersonalInfo,
 } from '@/features/signUp/signUpSlice';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
-import { useState } from 'react';
+import { MainTitle } from '@/common/MainTitle';
 
 export const PersonalInfo: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -47,49 +49,42 @@ export const PersonalInfo: React.FC = () => {
   return (
     <>
       <section className="personal-info">
-        <h1 data-testid="title">Personal Info</h1>
-        <p className="description" data-testid="description">
-          {AppText.personalInfoDescription}
-        </p>
-        <label htmlFor="name" data-testid="name-label">
+        <MainTitle title="Personal Info" />
+        <p className="description">{AppText.personalInfoDescription}</p>
+        <label htmlFor="name">
           Name
           <input
+            id="Name"
             value={name}
             onChange={onNameChange}
             placeholder={AppText.namePlaceholder}
             name="name"
             type="text"
-            data-testid="name-input"
           />
         </label>
-        <label htmlFor="email" data-testid="email-label">
+        <label htmlFor="email">
           Email
           <input
+            id="email"
             value={email}
             onChange={onEmailChange}
             name="email"
             type="text"
-            data-testid="email-input"
             placeholder={AppText.emailPlaceholder}
           />
         </label>
-        <label htmlFor="phone" data-testid="phone-label">
+        <label htmlFor="phone">
           Phone
           <input
+            id="phone"
             value={phone}
             onChange={onPhoneChange}
             name="phone"
             type="text"
-            data-testid="phone-input"
             placeholder={AppText.phonePlaceholder}
           />
         </label>
-        <button
-          type="button"
-          className="next-step"
-          data-testid="next-step"
-          onClick={onNextStep}
-        >
+        <button type="button" className="next-step" onClick={onNextStep}>
           Next Step
         </button>
       </section>

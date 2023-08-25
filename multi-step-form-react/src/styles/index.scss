@@ -4,12 +4,15 @@
 @import './mixins';
 
 :root {
+  // Font Family
   --ff-base: 'Ubuntu', sans-serif;
 
+  // Font Weights
   --fw-regular: 300;
   --fw-semi-bold: 500;
   --fw-bold: 700;
 
+  // Font Sizes
   --fs-base: 16px;
   --fs-200: 0.875rem;
   --fs-300: 1rem;
@@ -18,7 +21,7 @@
   --fs-600: 1.75rem;
   --fs-700: 3.25rem;
 
-  // Expressive colors
+  // Expressive Colors
   --clr-primary-400: #{$clr-marine-blue};
   --clr-primary-600: #{$clr-pastel-blue};
   --clr-primary-700: #{$clr-purplish-blue};
