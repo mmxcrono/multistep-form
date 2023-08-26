@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 import { NumberAvatar } from '@/common/NumberAvatar';
-import { useAppSelector } from '@/app/hooks';
-import { selectCurrentStep } from '@/features/signUp/signUpSlice';
+import BackgroundSvg from '@/assets/bg-sidebar-mobile.svg';
 
 const Container = styled.div`
+  background-image: url(${BackgroundSvg});
   display: flex;
   justify-content: center;
   gap: 1em;
   padding: 1em;
+  padding-bottom: 5em;
+  margin-bottom: -3em;
 `;
 
 interface Props {
@@ -16,16 +18,14 @@ interface Props {
   numSteps: number;
 }
 
-export const StepsDisplay: React.FC<Props> = (props: Props) => {
-  const currentStep = useAppSelector(selectCurrentStep);
-
+export const StepsDisplay: React.FC<Props> = ({ step, numSteps }: Props) => {
   return (
     <>
       <Container>
-        {Array.from({ length: props.numSteps }, (_, index) => (
+        {Array.from({ length: numSteps }, (_, index) => (
           <NumberAvatar
             key={index}
-            $isActive={currentStep === index + 1}
+            $isActive={step === index + 1}
             number={index + 1}
           />
         ))}

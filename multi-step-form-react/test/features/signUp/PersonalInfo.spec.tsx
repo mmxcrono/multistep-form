@@ -25,35 +25,31 @@ describe(`${SUITE}`, () => {
       </Provider>,
     );
 
-    // Expect title
+    // title
     expect(getByText('Personal Info')).toBeInTheDocument();
 
-    // Expect description
+    // description
     expect(getByText(AppText.personalInfoDescription)).toBeInTheDocument();
 
-    // Ideally get the label via getLabelByText but won't work with htmlFor
-    // Expect name label
+    // name label
     expect(getByText('Name')).toBeInTheDocument();
-    // Expect name input
+    // name input
     const nameInput = getByPlaceholderText(AppText.namePlaceholder);
     expect(nameInput).toBeInTheDocument();
     expect(nameInput).toHaveValue('');
 
-    // Expect email label
+    // email label
     expect(getByText('Email')).toBeInTheDocument();
-    // Expect email input
+    // email input
     const emailInput = getByPlaceholderText(AppText.emailPlaceholder);
     expect(emailInput).toBeInTheDocument();
     expect(emailInput).toHaveValue('');
 
-    // Expect phone label
+    // phone label
     expect(getByText('Phone')).toBeInTheDocument();
-    // Expect phone input
+    // phone input
     const phoneInput = getByPlaceholderText(AppText.phonePlaceholder);
     expect(phoneInput).toBeInTheDocument();
     expect(phoneInput).toHaveValue('');
-
-    // Next Step button
-    expect(getByText('Next Step')).toBeInTheDocument();
   });
 });

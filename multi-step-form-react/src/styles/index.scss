@@ -23,10 +23,10 @@
 
   // Expressive Colors
   --clr-primary-400: #{$clr-marine-blue};
-  --clr-primary-600: #{$clr-pastel-blue};
-  --clr-primary-700: #{$clr-purplish-blue};
-  --clr-accent-800: #{$clr-light-blue};
-  --clr-warn-700: #{$clr-strawberry-red};
+  --clr-primary-600: #{$clr-purplish-blue};
+  --clr-primary-700: #{$clr-pastel-blue};
+  --clr-primary-800: #{$clr-light-blue};
+  --clr-warn: #{$clr-strawberry-red};
 
   // Neutral colors
   --clr-neutral-600: #{$clr-cool-gray};
@@ -34,10 +34,21 @@
   --clr-neutral-800: #{$clr-magnolia};
   --clr-neutral-850: #{$clr-alabaster};
   --clr-neutral-900: #{$clr-white};
+
+  // Border Radius
+  --br-100: 1px;
+  --br-200: 2pt;
+  --br-300: 3pt;
+  --br-400: 5pt;
+  --br-500: 10pt;
+  --br-600: 20pt;
+  --br-700: 50pt;
+  --br-800: 120pt;
+  --br-900: 50%;
 }
 
 body {
-  background-color: var(--clr-primary-600);
+  background-color: var(--clr-neutral-800);
   color: var(--clr-neutral-600);
   font-size: var(--fs-base);
   font-family: var(--ff-base);
@@ -49,9 +60,18 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-input,
-textarea,
-select,
-button {
-  color: var(--clr-text);
+label {
+  font-size: var(--fs-200);
+  color: var(--clr-primary-400);
+  line-height: 1.5;
+  margin-block: 0.5em;
+  display: block;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }

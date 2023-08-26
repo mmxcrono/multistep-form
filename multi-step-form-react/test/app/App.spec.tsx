@@ -10,7 +10,7 @@ const mockStore = configureStore([]);
 
 describe(`${SUITE}`, () => {
   it(`${SUITE} - Initial state`, async ({ expect }) => {
-    const initialState = { signUp: { personalInfo: { name: '' }, step: 1 } };
+    const initialState = { signUp: { step: 1 } };
     const store = mockStore(initialState);
 
     const { getByText } = render(
@@ -23,5 +23,9 @@ describe(`${SUITE}`, () => {
     expect(getByText('2')).toBeInTheDocument();
     expect(getByText('3')).toBeInTheDocument();
     expect(getByText('4')).toBeInTheDocument();
+
+    // Next Step button
+    expect(getByText('Personal Info')).toBeInTheDocument();
+    expect(getByText('Next Step')).toBeInTheDocument();
   });
 });
