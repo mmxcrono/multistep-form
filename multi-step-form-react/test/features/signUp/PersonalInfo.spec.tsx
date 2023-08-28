@@ -1,13 +1,12 @@
 import { describe, it } from 'vitest';
-import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 
 import { AppText } from '@/enums/appText';
 import { PersonalInfo } from '@/features/signUp/PersonalInfo';
+import store from '@/app/store.ts';
 
 const SUITE = 'SignUp - PersonalInfo';
-const mockStore = configureStore([]);
 
 // Learnings
 // 1. Testing implementation details is bad
@@ -16,9 +15,6 @@ const mockStore = configureStore([]);
 
 describe(`${SUITE}`, () => {
   it(`${SUITE} - Initial state`, async ({ expect }) => {
-    const initialState = { signUp: { personalInfo: { name: '' }, step: 1 } };
-    const store = mockStore(initialState);
-
     const { getByText, getByPlaceholderText } = render(
       <Provider store={store}>
         <PersonalInfo />

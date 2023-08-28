@@ -4,10 +4,9 @@ import styled, { ThemeProvider } from 'styled-components';
 import { PersonalInfo } from '@/features/signUp/PersonalInfo';
 import { nextStep, selectCurrentStep } from '@/features/signUp/signUpSlice';
 import { StepsDisplay } from '@/common/StepsDisplay';
+import { StyledButton } from '@/styled-components/ButtonStyles';
 
-import './App.scss';
 import { useAppDispatch, useAppSelector } from './hooks';
-import { StyledButton } from '@/common/buttons/StyledButton';
 
 const theme = {
   primaryColor: 'blue',
@@ -34,6 +33,14 @@ const Main = styled.main`
   overflow: auto;
 `;
 
+const Attribution = styled.div`
+  font-size: 11px;
+  text-align: center;
+  & a {
+    color: hsl(228, 45%, 44%);
+  }
+`;
+
 export const App: React.FC = () => {
   const step = useAppSelector(selectCurrentStep);
   const dispatch = useAppDispatch();
@@ -55,7 +62,7 @@ export const App: React.FC = () => {
           </StyledButton>
         </FormControls>
         <footer>
-          <div className="attribution">
+          <Attribution>
             Challenge by{' '}
             <a
               href="https://www.frontendmentor.io?ref=challenge"
@@ -63,8 +70,12 @@ export const App: React.FC = () => {
             >
               Frontend Mentor
             </a>
-            . Coded by <a href="#">Hoang Nguyen</a>.
-          </div>
+            . Coded by{' '}
+            <a href="https://mmxcrono.github.io" target="_blank">
+              Hoang Nguyen
+            </a>
+            .
+          </Attribution>
         </footer>
       </Wrapper>
     </ThemeProvider>

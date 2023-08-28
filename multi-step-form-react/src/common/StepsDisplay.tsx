@@ -5,6 +5,7 @@ import BackgroundSvg from '@/assets/bg-sidebar-mobile.svg';
 
 const Container = styled.div`
   background-image: url(${BackgroundSvg});
+  background-size: cover;
   display: flex;
   justify-content: center;
   gap: 1em;

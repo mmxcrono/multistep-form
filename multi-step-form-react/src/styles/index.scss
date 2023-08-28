@@ -45,9 +45,7 @@
   --br-700: 50pt;
   --br-800: 120pt;
   --br-900: 50%;
-}
 
-body {
   background-color: var(--clr-neutral-800);
   color: var(--clr-neutral-600);
   font-size: var(--fs-base);
@@ -58,20 +56,4 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-
-label {
-  font-size: var(--fs-200);
-  color: var(--clr-primary-400);
-  line-height: 1.5;
-  margin-block: 0.5em;
-  display: block;
-}
-
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
 }

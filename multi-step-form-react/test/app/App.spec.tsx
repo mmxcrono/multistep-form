@@ -1,18 +1,16 @@
 import { describe, it } from 'vitest';
-import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 
+import store from '@/app/store.ts';
 import { App } from '@/app/App';
 
 const SUITE = 'App';
-const mockStore = configureStore([]);
 
 describe(`${SUITE}`, () => {
-  it(`${SUITE} - Initial state`, async ({ expect }) => {
-    const initialState = { signUp: { step: 1 } };
-    const store = mockStore(initialState);
-
+  it(`${SUITE} - Initial app state should show Personal Info form`, async ({
+    expect,
+  }) => {
     const { getByText } = render(
       <Provider store={store}>
         <App />
@@ -24,7 +22,6 @@ describe(`${SUITE}`, () => {
     expect(getByText('3')).toBeInTheDocument();
     expect(getByText('4')).toBeInTheDocument();
 
-    // Next Step button
     expect(getByText('Personal Info')).toBeInTheDocument();
     expect(getByText('Next Step')).toBeInTheDocument();
   });

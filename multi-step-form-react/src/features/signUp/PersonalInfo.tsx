@@ -4,8 +4,8 @@ import { styled } from 'styled-components';
 import { AppText } from '@/enums/appText';
 import { selectPersonalInfo } from '@/features/signUp/signUpSlice';
 import { useAppSelector } from '@/app/hooks';
-import { MainTitle } from '@/common/MainTitle';
-import { StyledInput } from '@/common/inputs/StyledInput';
+import { StyledTitle } from '@/styled-components/TextStyles';
+import { StyledInput } from '@/styled-components/InputStyles';
 
 const Container = styled.div`
   background-color: white;
@@ -36,7 +36,7 @@ export const PersonalInfo: React.FC = () => {
   return (
     <>
       <Container>
-        <MainTitle title="Personal Info" />
+        <StyledTitle>Personal Info</StyledTitle>
         <p className="description">{AppText.personalInfoDescription}</p>
         <form>
           <label htmlFor="name">
