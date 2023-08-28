@@ -5,19 +5,13 @@ import { PersonalInfo } from '@/features/signUp/PersonalInfo';
 import { nextStep, selectCurrentStep } from '@/features/signUp/signUpSlice';
 import { StepsDisplay } from '@/common/StepsDisplay';
 import { StyledButton } from '@/styled-components/ButtonStyles';
+import { Steps } from '@/enums/Steps';
 
 import { useAppDispatch, useAppSelector } from './hooks';
 
 const theme = {
   primaryColor: 'blue',
 };
-
-const FormControls = styled.div`
-  background-color: var(--clr-neutral-900);
-  display: flex;
-  justify-content: flex-end;
-  padding: 1em;
-`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -31,6 +25,13 @@ const Main = styled.main`
   display: block;
   flex: 1;
   overflow: auto;
+`;
+
+const FormControls = styled.div`
+  background-color: var(--clr-neutral-900);
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
 `;
 
 const Attribution = styled.div`
@@ -54,7 +55,7 @@ export const App: React.FC = () => {
       <Wrapper>
         <Main>
           <StepsDisplay step={step} numSteps={4} />
-          {step === 1 && <PersonalInfo />}
+          {step === Steps.PersonalInfo && <PersonalInfo />}
         </Main>
         <FormControls>
           <StyledButton type="button" onClick={onNextStep}>

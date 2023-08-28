@@ -37,7 +37,7 @@ export const PersonalInfo: React.FC = () => {
     <>
       <Container>
         <StyledTitle>Personal Info</StyledTitle>
-        <p className="description">{AppText.personalInfoDescription}</p>
+        <p className="description">{AppText.PersonalInfoDescription}</p>
         <form>
           <label htmlFor="name">
             Name
@@ -45,7 +45,7 @@ export const PersonalInfo: React.FC = () => {
               id="Name"
               value={name}
               onChange={onNameChange}
-              placeholder={AppText.namePlaceholder}
+              placeholder={AppText.NamePlaceholder}
               name="name"
               type="text"
             />
@@ -59,7 +59,7 @@ export const PersonalInfo: React.FC = () => {
               onChange={onEmailChange}
               name="email"
               type="text"
-              placeholder={AppText.emailPlaceholder}
+              placeholder={AppText.EmailPlaceholder}
             />
           </label>
           <label htmlFor="phone">
@@ -70,7 +70,7 @@ export const PersonalInfo: React.FC = () => {
               onChange={onPhoneChange}
               name="phone"
               type="text"
-              placeholder={AppText.phonePlaceholder}
+              placeholder={AppText.PhonePlaceholder}
             />
           </label>
         </form>

@@ -14,7 +14,9 @@ const SUITE = 'SignUp - PersonalInfo';
 // 3. Test components and the props
 
 describe(`${SUITE}`, () => {
-  it(`${SUITE} - Initial state`, async ({ expect }) => {
+  it(`${SUITE} - Should show Personal Info form elements`, async ({
+    expect,
+  }) => {
     const { getByText, getByPlaceholderText } = render(
       <Provider store={store}>
         <PersonalInfo />
@@ -25,26 +27,26 @@ describe(`${SUITE}`, () => {
     expect(getByText('Personal Info')).toBeInTheDocument();
 
     // description
-    expect(getByText(AppText.personalInfoDescription)).toBeInTheDocument();
+    expect(getByText(AppText.PersonalInfoDescription)).toBeInTheDocument();
 
     // name label
     expect(getByText('Name')).toBeInTheDocument();
     // name input
-    const nameInput = getByPlaceholderText(AppText.namePlaceholder);
+    const nameInput = getByPlaceholderText(AppText.NamePlaceholder);
     expect(nameInput).toBeInTheDocument();
     expect(nameInput).toHaveValue('');
 
     // email label
     expect(getByText('Email')).toBeInTheDocument();
     // email input
-    const emailInput = getByPlaceholderText(AppText.emailPlaceholder);
+    const emailInput = getByPlaceholderText(AppText.EmailPlaceholder);
     expect(emailInput).toBeInTheDocument();
     expect(emailInput).toHaveValue('');
 
     // phone label
     expect(getByText('Phone')).toBeInTheDocument();
     // phone input
-    const phoneInput = getByPlaceholderText(AppText.phonePlaceholder);
+    const phoneInput = getByPlaceholderText(AppText.PhonePlaceholder);
     expect(phoneInput).toBeInTheDocument();
     expect(phoneInput).toHaveValue('');
   });
