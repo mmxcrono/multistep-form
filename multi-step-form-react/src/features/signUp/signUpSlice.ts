@@ -45,7 +45,6 @@ const signUpSlice = createSlice({
     },
     nextStep(state) {
       let isValid = true;
-      console.log('Next Step');
 
       // check if we can move to the next step
       if (state.currentStep === Steps.PersonalInfo) {

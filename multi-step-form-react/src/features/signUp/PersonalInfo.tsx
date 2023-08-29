@@ -18,7 +18,7 @@ import { FormContainer } from '@/styled-components/ContainerStyles';
 
 export const PersonalInfo: React.FC = () => {
   const personalInfo = useAppSelector(selectPersonalInfo);
-
+  const [formData, setFormData] = useState(personalInfo);
   const dispatch = useAppDispatch();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -27,15 +27,11 @@ export const PersonalInfo: React.FC = () => {
     dispatch(nextStep());
   };
 
-  const [formData, setFormData] = useState(personalInfo);
-
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ): void => {
     const { name, value } = event.target;
-    setFormData((prevData) => {
-      return { ...prevData, [name]: value };
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
   return (

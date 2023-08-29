@@ -14,6 +14,7 @@ const SUITE = 'SignUp - PersonalInfo';
 // 1. Testing implementation details is bad
 // 2. Use data-testid only when absolutely necessary
 // 3. Test components and the props
+// 4. Don't need to mock redux for tests
 
 describe(`${SUITE}`, () => {
   it(`${SUITE} - Should show Personal Info form`, async ({ expect }) => {
@@ -61,7 +62,9 @@ describe(`${SUITE}`, () => {
 
     const nameInput = getByPlaceholderText(FormText.NamePlaceholder);
     expect(nameInput).toHaveValue('');
-    store.dispatch(nextStep());
+    await waitFor(() => {
+      store.dispatch(nextStep());
+    });
 
     await waitFor(() => {
       expect(getByText('This field is required')).toBeInTheDocument();
@@ -77,7 +80,10 @@ describe(`${SUITE}`, () => {
 
     const emailInput = getByPlaceholderText(FormText.EmailPlaceholder);
     expect(emailInput).toHaveValue('');
-    store.dispatch(nextStep());
+
+    await waitFor(() => {
+      store.dispatch(nextStep());
+    });
 
     await waitFor(() => {
       expect(getByText('This field is required')).toBeInTheDocument();
@@ -93,7 +99,10 @@ describe(`${SUITE}`, () => {
 
     const phoneInput = getByPlaceholderText(FormText.PhonePlaceholder);
     expect(phoneInput).toHaveValue('');
-    store.dispatch(nextStep());
+
+    await waitFor(() => {
+      store.dispatch(nextStep());
+    });
 
     await waitFor(() => {
       expect(getByText('This field is required')).toBeInTheDocument();
