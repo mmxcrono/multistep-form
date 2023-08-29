@@ -18,6 +18,10 @@ export const StyledLabel = styled.label`
   font-size: var(--fs-200);
   color: var(--clr-primary-400);
   line-height: 1.5;
-  margin-block: 0.5em;
+  margin-block: 1em;
   display: block;
+`;
+
+export const StyledDescription = styled.p`
+  margin-block: 1em;
 `;

@@ -17,7 +17,7 @@ interface SignUpState {
   currentStep: number;
 }
 
-const initialState: SignUpState = {
+export const initialState: SignUpState = {
   personalInfo: {
     name: '',
     email: '',
@@ -37,11 +37,15 @@ const signUpSlice = createSlice({
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       state = initialState;
     },
-    submitPersonalInfo(state, action: PayloadAction<PersonalInfo>) {
-      state.personalInfo = action.payload;
+    submitPersonalInfo(state, action: PayloadAction<Partial<PersonalInfo>>) {
+      state.personalInfo = {
+        ...state.personalInfo,
+        ...action.payload,
+      };
     },
     nextStep(state) {
       let isValid = true;
+      console.log('Next Step');
 
       // check if we can move to the next step
       if (state.currentStep === Steps.PersonalInfo) {
@@ -50,6 +54,8 @@ const signUpSlice = createSlice({
         if (!name) {
           state.personalInfo.nameError = Validation.FieldRequired;
           isValid = false;
+        } else {
+          state.personalInfo.nameError = '';
         }
 
         if (!email) {
