@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { styled } from 'styled-components';
 
-import { AppText } from '@/enums/appText';
 import { selectPersonalInfo } from '@/features/signUp/signUpSlice';
 import { useAppSelector } from '@/app/hooks';
-import { StyledTitle } from '@/styled-components/TextStyles';
+import { StyledLabel, StyledTitle } from '@/styled-components/TextStyles';
 import { StyledInput } from '@/styled-components/InputStyles';
+import { FormText } from '@/enums/FormText';
+import { AppText } from '@/enums/AppText';
 
 const Container = styled.div`
   background-color: white;
@@ -36,43 +37,43 @@ export const PersonalInfo: React.FC = () => {
   return (
     <>
       <Container>
-        <StyledTitle>Personal Info</StyledTitle>
+        <StyledTitle>{AppText.PersonalInfoTitle}</StyledTitle>
         <p className="description">{AppText.PersonalInfoDescription}</p>
         <form>
-          <label htmlFor="name">
-            Name
+          <StyledLabel htmlFor={FormText.NameLabel}>
+            {FormText.NameLabel}
             <StyledInput
-              id="Name"
+              id={FormText.NameLabel}
               value={name}
               onChange={onNameChange}
-              placeholder={AppText.NamePlaceholder}
-              name="name"
+              placeholder={FormText.NamePlaceholder}
+              name={FormText.NameLabel}
               type="text"
             />
-          </label>
+          </StyledLabel>
 
-          <label htmlFor="email">
-            Email
+          <StyledLabel htmlFor={FormText.EmailLabel}>
+            {FormText.EmailLabel}
             <StyledInput
-              id="email"
+              id={FormText.EmailLabel}
               value={email}
               onChange={onEmailChange}
-              name="email"
+              name={FormText.EmailLabel}
               type="text"
-              placeholder={AppText.EmailPlaceholder}
+              placeholder={FormText.EmailPlaceholder}
             />
-          </label>
-          <label htmlFor="phone">
-            Phone
+          </StyledLabel>
+          <StyledLabel htmlFor={FormText.PhoneLabel}>
+            {FormText.PhoneLabel}
             <StyledInput
-              id="phone"
+              id={FormText.PhoneLabel}
               value={phone}
               onChange={onPhoneChange}
-              name="phone"
+              name={FormText.PhoneLabel}
               type="text"
-              placeholder={AppText.PhonePlaceholder}
+              placeholder={FormText.PhonePlaceholder}
             />
-          </label>
+          </StyledLabel>
         </form>
       </Container>
     </>

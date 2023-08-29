@@ -1,7 +1,8 @@
-import { RootState } from '@/app/store';
-import { AppText } from '@/enums/appText';
-import { Steps } from '@/enums/Steps';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
+import { RootState } from '@/app/store';
+import { Steps } from '@/enums/Steps';
+import { Validation } from '@/enums/FormError';
 
 interface PersonalInfo {
   name: string;
@@ -33,6 +34,7 @@ const signUpSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       state = initialState;
     },
     submitPersonalInfo(state, action: PayloadAction<PersonalInfo>) {
@@ -46,21 +48,21 @@ const signUpSlice = createSlice({
         const { name, email, phone } = state.personalInfo;
 
         if (!name) {
-          state.personalInfo.nameError = AppText.FieldRequired;
+          state.personalInfo.nameError = Validation.FieldRequired;
           isValid = false;
         }
 
         if (!email) {
-          state.personalInfo.emailError = AppText.FieldRequired;
+          state.personalInfo.emailError = Validation.FieldRequired;
           isValid = false;
         }
 
         if (!phone) {
-          state.personalInfo.phoneError = AppText.FieldRequired;
+          state.personalInfo.phoneError = Validation.FieldRequired;
           isValid = false;
         } else if (!/^\+1 \d{3} \d{3} \d{4}/.test(phone)) {
           isValid = false;
-          state.personalInfo.phoneError = AppText.InvalidPhone;
+          state.personalInfo.phoneError = Validation.InvalidPhone;
         }
       }
 
